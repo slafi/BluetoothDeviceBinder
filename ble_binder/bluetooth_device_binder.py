@@ -49,16 +49,18 @@ class BluetoothDeviceBinder():
         """
 
         cmd = ['rfcomm', 'release', str(device)]
-
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc = None
 
         try:
+            proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        
             self.stdout_data, self.stderr_data = proc.communicate(timeout)
             return proc.returncode
 
         except Exception as e:
             print('An exception has occured: {}\n'.format(str(e)))
-            proc.kill()
+            if proc != None:
+                proc.kill()
             self.stdout_data, self.stderr_data = proc.communicate()
             return -1
         

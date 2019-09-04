@@ -1,6 +1,6 @@
 # Project Description
 
-This project uses the [RFCOMM tool](https://linux.die.net/man/1/rfcomm) to automatically creating a binding with a remote Bluetooth device. This code is particularly useful if you wish to automatically communicate with a previously paired Bluetooth device. The `BluetoothDeviceBinder` class makes it trivial to do so from a Python script.
+This project uses the [RFCOMM tool](https://linux.die.net/man/1/rfcomm) to automatically create a binding with a remote Bluetooth device. This code is particularly useful if you wish to automatically communicate with a previously paired Bluetooth device. The `BluetoothDeviceBinder` class makes it trivial to do so from a Python script.
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ echo user_password | sudo -S python python_script.py
 
 2. Grant higher privileges to Python runtime: This means that you either *temporarily* or *permanently* grant `/usr/bin/python3` superuser priviliges so all the Python scripts will execute without asking for root / superuser credentials.
 
-<span style="color:red">**WARNING:** In both cases, the security of your system may be breached. You **should not** grant any process, command, script or executable root priviliges if you are not sure that this will not affect your system integrity and security. Providing your password in **clear** to any program or script must also be prohibited unless you take the required measures in order to protect it on disk and in memory.</span>
+<span style="color:red">**WARNING:** In both cases, the security of your system may be breached. You **should not** grant any process, command, script or executable root priviliges if you are not sure that this will not affect your system's integrity and security. Providing your password in **clear** to any program or script must also be avoided unless you take the required measures in order to protect it on disk and in memory.</span>
 
 ## Built With:
 
