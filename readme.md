@@ -4,6 +4,7 @@ This project uses the [RFCOMM tool](https://linux.die.net/man/1/rfcomm) to autom
 
 ## Getting Started
 
+### Binding Establishment
 To successfully create a binding with a remote Bluetooth device, an instance of `BluetoothDeviceBinder` class can be used as follows:
 
 ```python
@@ -14,6 +15,24 @@ mybinder = binder.BluetoothDeviceBinder()
 
 # Attempts the binding procedure
 rcode = mybinder.bind(mac_address='XX:XX:XX:XX:XX:XX', device=0)
+
+# if rcode == 0  : the binding command is successful
+# if rcode == -1 : the provided MAC address is not valid
+# if rcode == -2 : an exception has occured
+# if rcode == ?  : a return code proper to the RFCOMM command
+```
+### Binding Release
+
+Similarly to the binding establishment, one can use the class method `release` to release any existent binding. The device identifier should be provided to properly identify which binding should be released.
+
+```python
+from ble_binder import bluetooth_device_binder as binder
+
+# Initializes the binding instance
+mybinder = binder.BluetoothDeviceBinder()
+
+# Release the binding
+rcode = mybinder.release(device=0, sudo=True)
 
 # if rcode == 0  : the binding command is successful
 # if rcode == -1 : the provided MAC address is not valid
